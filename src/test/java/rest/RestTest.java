@@ -107,7 +107,7 @@ public class RestTest {
 	}
 	
 	private void askForStatistics() throws JsonProcessingException, Exception {
-		Thread.sleep(1000); //a second to trigger statistics update
+		Thread.sleep(500); //half a second to trigger statistics update
 		
 		mvc.perform(MockMvcRequestBuilders.get(GET_STATS).contentType(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())

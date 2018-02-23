@@ -27,8 +27,8 @@ public class TransactionsStatisticsService  {
 	 * Statistics are updated depending on <i>updatePeriod</i>.
 	 * 
 	 * @param timeLimit - the time limit, which if exceeded by a timestamp (current moment - timestamp),
-	 * leads to removing the transaction from the statistics
-	 * @param updatePeriod - time period for updating statistics <b>in ms</b>
+	 * leads to removing the transaction from the statistics in <b>ms</b>
+	 * @param updatePeriod - time period for updating statistics in <b>ms</b>
 	 */
 	public TransactionsStatisticsService(long timeLimit, long updatePeriod) {
 		this.setTimeLimit(timeLimit);
@@ -81,12 +81,12 @@ public class TransactionsStatisticsService  {
 	/**
 	 * Add transaction in the statistics.
 	 * 
-	 * @param tr Transaction
+	 * @param transaction Transaction
 	 * @return true, if and only if the transaction is added to statistics, false otherwise
 	 */
-	public synchronized boolean add(Transaction tr) {
-		if(isTransactionValid(tr)) {
-			this.transactions.put(tr);
+	public synchronized boolean add(Transaction transaction) {
+		if(isTransactionValid(transaction)) {
+			this.transactions.put(transaction);
 			
 			/**
 			 * IF complexity (O(1)) is <b>NOT</b> necessary for this method (endpoint),

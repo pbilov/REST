@@ -30,9 +30,9 @@ public class TransactionsController {
 		/*
 		 * create a statistics service,
 		 * keeping transactions data for the last 60 seconds
-		 * and updating the statistics every second
+		 * and updating the statistics every half a second
 		 */
-		this.statisticsService = new TransactionsStatisticsService(60*1000, 1000);
+		this.statisticsService = new TransactionsStatisticsService(60*1000, 500);
 		this.statisticsService.execute();
 	}
 	
